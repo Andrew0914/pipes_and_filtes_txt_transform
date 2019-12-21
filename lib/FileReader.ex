@@ -1,18 +1,15 @@
 defmodule FileReader do
-  @moduledoc """
-  Documentation or FileReader.
-  """
 
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> FileReader.hello()
-      :world
-
-  """
-  def hello do
-    :world
+  def read_file(path) do
+    if(File.exists?(path)) do
+      File.stream!(path)
+      |> Flow.from_enumerable()
+      |> Flow.partition()
+      |> Flow.flat_map(&String.split(&1, "\n"))
+      |> Enum.to_list()
+    else
+     :not_found
+    end
   end
+
 end
