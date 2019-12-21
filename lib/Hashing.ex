@@ -1,0 +1,3 @@
+defmodule Hashing do
+
+end

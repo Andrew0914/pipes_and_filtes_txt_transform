@@ -1,6 +1,6 @@
-defmodule MaiN do
+defmodule FileReader do
   @moduledoc """
-  Documentation for Main.
+  Documentation or FileReader.
   """
 
   @doc """
@@ -8,7 +8,7 @@ defmodule MaiN do
 
   ## Examples
 
-      iex> Main.hello()
+      iex> FileReader.hello()
       :world
 
   """
