@@ -1,21 +1,20 @@
-# PfFlowTextTransform
+# Text tranform using pipes and filters patter
 
-**TODO: Add description**
+**This is a project in elixir that use FLOW and Pipes & and filters in order to transform a text.**
 
-## Installation
+## Usage
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `pf_flow_text_transform` to your list of dependencies in `mix.exs`:
+### The filters are:
+* FileReader filter -> `FileReader.read_file(path)`
+* Ahoy! filer -> `Ahoy.like_pirate(lines text list)`
+* Ef filer -> `Ef.ef(lines text list)`
+* Hasing filter -> `Hashing.do_hash(lines text list)`
+* FileWriter filter -> `FileWriter.write_file(content,path)`
 
-```elixir
-def deps do
-  [
-    {:pf_flow_text_transform, "~> 0.1.0"}
-  ]
-end
-```
+You must use ´FileReader´ as first filter and ´FileWriter´ as the last filter then you can interchange the rest of them, for example:
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/pf_flow_text_transform](https://hexdocs.pm/pf_flow_text_transform).
+#### Using iex
 
+> "mifile.txt" |> FileReader.read_file |> Ahoy.like_pirate |> Ef.EF |> FileWriter.write_file
+
+> "mifile.txt" |> FileReader.read_file |> Ef.EF |> Ahoy.like_pirate |> FileWriter.write_file
